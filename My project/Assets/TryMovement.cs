@@ -54,6 +54,8 @@ public class TryMovement : MonoBehaviour
             moveleft = false;
         else
             moveleft = true;
+
+        
     }
 
 

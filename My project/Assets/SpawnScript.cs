@@ -10,7 +10,6 @@ public class SpawnScript : MonoBehaviour
     public GameObject RedCube;
     public GameObject BlueCube;
     public GameObject[] Array;
-    private bool check = false;
     private int i;
     // Update is called once per frame
 
@@ -18,41 +17,34 @@ public class SpawnScript : MonoBehaviour
     {
         i = 0;
         CounterTime = 0;
-    }
-    void Update()
-    {
 
-
-
-        if (i < 13 && check == false)
-        {
-         //   print("a");
-            coroutine = instantiateCubes(CounterTime, Array[i]);
-            check = true;
-            StartCoroutine(coroutine);
-            print(i);
-
-            //  print("b");
-        }
-
-        else
-            print("end");
-
-        
+        coroutine = instantiateCubes(IncrementTime, Array);
+        StartCoroutine(coroutine);
     }
 
-    IEnumerator instantiateCubes(float waitTime, GameObject cube)
+
+    IEnumerator instantiateCubes(float waitTime, GameObject[] cubes)
     {
         //    print("c");
 
-        CounterTime += IncrementTime;
-        yield return new WaitForSeconds(waitTime);
-        Instantiate(cube, transform.position, Quaternion.identity);
+       // CounterTime += IncrementTime;
 
-        check = false;
-        i++;
-        cube.SetActive(true);
-       print(i);
+        for(i = 0; i < 14; i++)
+        {
+           // cubes[i].SetActive(true);
+            Instantiate(cubes[i], transform.position, Quaternion.identity);
+            print(i);
+            //cubes[i].SetActive(true);
+            yield return new WaitForSeconds(waitTime);
+        }
+
+        //yield return new WaitForSeconds(waitTime);
+        //Instantiate(cube, transform.position, Quaternion.identity);
+
+        //check = false;
+        //i++;
+        
+       //print(i);
       //  print("d");
     }
 }

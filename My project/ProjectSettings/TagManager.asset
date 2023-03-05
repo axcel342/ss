@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Shape
   - Cutout
+  - Red Tag
+  - Blue Tag
   layers:
   - Default
   - TransparentFX

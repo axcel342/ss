@@ -15,8 +15,8 @@ public class Plane_Movement : MonoBehaviour
     public float angle;
     private Vector2 pos_a;
     private Vector2 pos_b;
-    private int maxC = 3;
-    private int c = 3;
+    private int maxC = 2;
+    private int c = 2;
 
     private Rigidbody rb;
 
