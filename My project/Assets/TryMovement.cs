@@ -9,6 +9,7 @@ public class TryMovement : MonoBehaviour
 
     private CharacterController controller;
     private Vector3 moveVector;
+    public bool moveleft = true;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class TryMovement : MonoBehaviour
         {
             Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
             ApplyMovement(touchDeltaPosition);
+            controller.Move(moveVector);
         }
     }
 
@@ -31,11 +33,31 @@ public class TryMovement : MonoBehaviour
         float y = deltaPosition.y * speed * Time.deltaTime;
        // float z = 1.0f; // Set the Z direction force value here
 
-       moveVector = new Vector3(-y, 0, 0);
+        if(moveleft == true)
+        {
+            moveVector = new Vector3(-y, 0, 0);
+        }
 
-       controller.Move(moveVector);
- 
-      //  rb.AddForce(movement);
+        else
+            moveVector = new Vector3(0, 0, x);
+
+
+
+
+
+        //  rb.AddForce(movement);
     }
 
+    public void reverseMotion()
+    {
+        if (moveleft == true)
+            moveleft = false;
+        else
+            moveleft = true;
+    }
+
+
+
 }
+
+

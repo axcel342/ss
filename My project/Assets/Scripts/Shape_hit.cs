@@ -31,9 +31,23 @@ public class Shape_hit : MonoBehaviour
         if(other.tag == "Shape")
         {
             print("Recieved");
-            //other.gameObject.SetActive(false);
-            int randomNumber = Random.Range(0, positions.Length);
-            other.gameObject.transform.position = positions[randomNumber];
+            other.gameObject.SetActive(false);
+            //     int randomNumber = Random.Range(0, positions.Length);
+            //    other.gameObject.transform.position = positions[randomNumber];
+            // other.gameObject.transform.position = new Vector3(0, 37, 0);
+
+            //Object.Destroy(other.gameObject);
+
+            if (other.gameObject.GetComponent<MeshRenderer>().material.color == Color.red)
+            {
+                GetComponent<MeshRenderer>().material.color = Color.red;
+            }
+
+            else if(other.gameObject.GetComponent<MeshRenderer>().material.color == Color.blue)
+            {
+                GetComponent<MeshRenderer>().material.color = Color.blue;
+            }
+
         }
     }
 }
