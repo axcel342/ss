@@ -5,7 +5,10 @@ using UnityEngine;
 public class TryMovement : MonoBehaviour
 {
     public float speed = 10f;
-    //private Rigidbody rb;
+    public GameObject ArrowLeft1;
+    public GameObject ArrowLeft2;
+    public GameObject ArrowRight1;
+    public GameObject ArrowRight2;
 
     private CharacterController controller;
     private Vector3 moveVector;
@@ -55,7 +58,24 @@ public class TryMovement : MonoBehaviour
         else
             moveleft = true;
 
-        
+        if(ArrowLeft1.activeInHierarchy)
+        {
+            ArrowLeft1.SetActive(false);
+            ArrowLeft2.SetActive(false);
+            ArrowRight1.SetActive(true);
+            ArrowRight2.SetActive(true);
+        }
+
+        else
+        {
+            ArrowLeft1.SetActive(true);
+            ArrowLeft2.SetActive(true);
+            ArrowRight1.SetActive(false);
+            ArrowRight2.SetActive(false);
+        }
+
+
+
     }
 
 

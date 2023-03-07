@@ -8,6 +8,8 @@ TagManager:
   - Cutout
   - Red Tag
   - Blue Tag
+  - Green Tag
+  - Yellow Tag
   layers:
   - Default
   - TransparentFX
